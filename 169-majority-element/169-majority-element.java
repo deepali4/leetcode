@@ -4,3 +4,6 @@ class Solution {
         return nums[nums.length/2];
     }
 }
+
+
+// o(nlogn) sorting complexity
