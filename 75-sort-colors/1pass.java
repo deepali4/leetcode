@@ -7,21 +7,24 @@ class Solution {
         
          while(current<=high)
          {
-            
+             //if current is 0, swap with p1 pointer, increment p1
                 if(nums[current]==0)
                 {
                     nums[current]=nums[low];
                     nums[low]=0;
                     low++;
                 }
+               //if current is 2, swap with p2 pointer, decrement p2
                 if(nums[current]==2)
                 {
                     nums[current]=nums[high];
                     nums[high]=2;
                     high--;
+                    
+                    //may have swapped an extra 0 from the end of array that requires extra processing, so decrement index to account for it
                     current--;
                 }
-             
+               //move to next index to make progress
              current++;
          }
     }
