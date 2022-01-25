@@ -28,3 +28,6 @@ class Solution {
         
     }
 }
+
+// BF - If any cell of the matrix has a zero we can record its row and column number. 
+// All the cells of this recorded row and column can be marked zero in the next iteration.
