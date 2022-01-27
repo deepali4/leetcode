@@ -27,3 +27,8 @@ class Solution {
         
     }
 }
+// logic
+// use set lokup fuction
+// for num  in set dont check for num-1 as it might bot be start of seq
+// if num-1 not present count num+1 using counter and change num to num +1;
+// update max count so far to sol
