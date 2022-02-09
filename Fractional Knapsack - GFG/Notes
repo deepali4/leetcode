@@ -1,5 +1,22 @@
 Approach: 
 
+
+ values[] = {100,60,120}, weight[] = {20,10,30}.
+sort with respect to value by weight is very important
+
+
+think greadyly  --- value for 1 weight are as follow
+100/20 = 5
+60/10 = 6
+120/30 =4
+
+we have to maximize the value
+so first wee need to choose which give ( value/weight) max
+
+
+
+
+
 The greedy method to maximize our answer will be to pick up the items with higher values.
 Since it is possible to break the items as well we should focus on picking up items having higher value /weight first. To achieve this,
 items should be sorted in decreasing order with respect to their value /weight. Once the items are sorted we can iterate.
