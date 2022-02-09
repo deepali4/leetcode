@@ -59,15 +59,15 @@ class Solution
       {
           
           
-          if(arr[i]<=dep[j])
+          if(arr[i]<=dep[j])   // NO TRAIN LEFT BEFORE TRAIN AT I CAME NO ADD NEW PLATFORM
           { 
               i++;
              curOccupid++;
               
           }
-          else  if(arr[i] > dep[j]) {
+          else  if(arr[i] > dep[j]) { // IF trian as left  occupied platforms will decreases  .. cheange the new train departure time 
               j++;
-            curOccupid--;
+              curOccupid--;
           }
           
           
