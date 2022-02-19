@@ -49,6 +49,9 @@ class Solution {
         if(nums2.length<nums1.length)
            return kthElement(nums2,nums1,m,n,k);
         
+	    
+	   // -- if k is less than n then we can take min of k and n element from small array
+	   // --  if k is greate than length of arra 2 in that case we cant take 0  eloemts frm array 1 so we have to take minum  k - m from array 1
        int low = Math.max(0,k-m), high = Math.min(k,n);
         while(low<=high)
         {
