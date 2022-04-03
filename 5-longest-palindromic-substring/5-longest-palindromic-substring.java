@@ -24,7 +24,8 @@ class Solution {
             i--;
             j++;
         }
-        
+        // (j-i-1) current length of the string
+       
         if(maxlen < (j-i-1))
         { 
             start=i+1;
