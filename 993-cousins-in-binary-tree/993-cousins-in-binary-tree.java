@@ -14,40 +14,34 @@
  * }
  */
 class Solution {
-    TreeNode parent1 = null;
-    TreeNode parent2 = null;
+        int h1=0;  // Take h1 and h2 to keep track of heights for 1st and 2nd inputs
+        int h2=0;
     public boolean isCousins(TreeNode root, int x, int y) {
-        
-        if(root.val== x || root.val == y ) return false;
-        int level1 = findlevel(root,parent1,x,0,true);
-        int level2 = findlevel(root,parent2,y,0,false);
-        
-        if(parent1!=parent2 && level1== level2)
-          return true;
-        System.out.println(parent1.val);
-         System.out.println(parent2.val);
+        if(root==null) return false;
+  
+        TreeNode firstParent = isCousinsHelper(root, x, null,0, true);  // checking for parent for 1st , to be returned as null if value does not exist
+        TreeNode secondParent = isCousinsHelper(root, y, null,0, false);   // checking for parent for 2nd , to be returned as null if value does not exist
+        if(h1==h2)                   // if at same height , possibly cousins
+       {     
+        if(firstParent==secondParent ) return false;  // if parents are same , no cousins
+        else return true;
+        }
         return false;
-        
     }
-    public int findlevel(TreeNode root,TreeNode parent, int value, int level,boolean isFirst){
-        if(root== null) return 0;
-        if(root.val==value)
-            return level;
-        if(isFirst)
-         parent1= root;
-        else
-        parent2=root;
+    TreeNode isCousinsHelper(TreeNode curr, int v, TreeNode parent, int height, boolean isFirst)  // isFirst flag is to check whether we are traversing for 1st or second value
+    {
+        if(curr==null) return null;   // if no node is there return null 
+        if(curr.val==v) {
+            if(isFirst== true) h1 = height + 1;   // if we are traversing for 1st value , set h1 as the height , else set h2 as height 
+            else h2 = height + 1;
+            return parent;  // return parent
+        }
+        TreeNode left =  isCousinsHelper(curr.left, v , curr, height+1, isFirst);
+        TreeNode right = isCousinsHelper(curr.right, v , curr, height+1,isFirst);
+  
+        if(left!=null) return left;  // check if either left or right of the current node contains the node containing value v
+        else if(right!=null) return right;
         
-        int left =findlevel(root.left,parent, value, level+1,isFirst);
-        if(left!= 0) return  left;
-        
-       if(isFirst)
-         parent1= root;
-        else
-        parent2=root;
-        int right = findlevel(root.right,parent,value,level+1,isFirst);
-            if(right!=0) return right;
-    
-        return 0;
+        return null;
     }
 }
