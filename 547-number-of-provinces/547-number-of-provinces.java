@@ -9,7 +9,7 @@ class Solution {
         {
             
             if(visited[i] == 0){
-                //visited[i]=1;
+                visited[i]=1;
                 dfs(isConnected,i,visited);
                 ans++;
             }
