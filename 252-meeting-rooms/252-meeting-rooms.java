@@ -1,16 +1,11 @@
 class Solution {
     public boolean canAttendMeetings(int[][] intervals) {
          Arrays.sort(intervals, (a, b) -> (a[0]-b[0]));
-         LinkedList<int[]> ans =new LinkedList<>();
+    
         
-        for(int[] interval :  intervals){
+        for(int i = 0; i< intervals.length-1 ; i++){
             
-            if(ans.isEmpty() || ans.getLast()[1] <= interval[0] )
-                ans.add(interval);
-            else{
-                
-                return false;
-            }
+           if(intervals[i][1]>intervals[i+1][0]) return false;
             
         }
         return true;
