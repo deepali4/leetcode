@@ -1,6 +1,5 @@
 class Solution {
     public int kthSmallest(int[][] matrix, int k) {
-        
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         int n =  matrix.length;
         
@@ -17,6 +16,5 @@ class Solution {
         }
              
     return pq.peek();
-        
     }
 }
