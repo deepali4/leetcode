@@ -13,6 +13,8 @@
  *     }
  * }
  */
+// since the height of a tree is always greater than or equal to 0
+// we use -1 as a flag to indicate if the subtree is not balanced
 class Solution {
    public boolean ans=true;
     public boolean isBalanced(TreeNode root) {
