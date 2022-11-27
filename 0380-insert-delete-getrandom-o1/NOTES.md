@@ -1,0 +1,1 @@
+that remove any element in ArrayList can be achieved in O(1) time by swapping the removed element with the last element then perform delete operation on the last element.
