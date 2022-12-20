@@ -1,29 +1,21 @@
 class Solution {
-    public int lengthOfLIS(int[] nums) {
-        int[] dp= new int [nums.length];
-        
-        Arrays.fill(dp,1);
-        
-        
-        for(int i =1 ;i <nums.length;i++)
-        {
-            for(int j =0; j<i;j++)
-            {
-                if(nums[j]<nums[i])
-                {
-                    dp[i]=Math.max(dp[j]+1,dp[i]);
-                }
-            }
-        }
-        
-        int ans=0;
-        
-        for(int i : dp)
-            //System.out.println(i);
-            ans= Math.max(ans,i);
-        
-        
-        return ans;
-        
-    }
+    // O(N^2) Time | O(N) Space
+public static int lengthOfLIS(int[] nums) {
+
+	int[] dp = new int[nums.length];
+	Arrays.fill(dp, 1);
+	int ans = 1;
+
+	for (int i = 1; i < dp.length; i++) {
+
+		for (int j = 0; j < i; j++) {
+		
+			if (nums[i] > nums[j]) {
+				dp[i] = Math.max(dp[i], dp[j] + 1);
+			}
+			ans = Math.max(ans, dp[i]);
+		}
+	}
+	return ans;
+}
 }
