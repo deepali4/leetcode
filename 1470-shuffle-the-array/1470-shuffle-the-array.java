@@ -8,19 +8,9 @@ class Solution {
         
         while(ptr1<n || ptr2<2*n)
         {
-            if(i%2 == 0){
-                outputarray[i] = nums[ptr1];
-                ptr1++;
-            }
-            else{
-                 outputarray[i] = nums[ptr2];
-                ptr2++;
-            }
-            i++;
+                outputarray[i++] = nums[ptr1++];
+                outputarray[i++] = nums[ptr2++];
         }
-        
-        
-        
         return outputarray;
         
     }
